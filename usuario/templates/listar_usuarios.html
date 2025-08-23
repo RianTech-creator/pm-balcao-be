@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Listar Usuários
+    Home
+{% endblock %}
+
+{% block header %}
+    <h1>Listar Usuários</h1>
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for usuario in usuarios %}
+            <li>
+                {{ usuario }}
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

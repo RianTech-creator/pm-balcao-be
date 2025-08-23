@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+Cadastrar Usuário
+{% endblock %}
+
+{% block header %}
+<h1>Pedido Digital</h1>
+{% endblock %}
+
+{% block main %}
+<h2>Cadastrar usuário</h2>
+<form method="post">
+    {% csrf_token %}
+    <!-- Seus campos de cadastro aqui -->
+    <input type="text" name="nome" placeholder="Nome">
+    <input type="email" name="email" placeholder="E-mail">
+    <input type="password" name="senha" placeholder="Senha">
+    <button type="submit">Cadastrar</button>
+    <div>
+        <a href="{% url 'home_view' %}">
+            <button type="button">Voltar para a Página Inicial</button>
+        </a>
+        <p>
+            Já tem uma conta? Entre nela agora.
+            <a href="{% url 'login_usuario' %}">Clique aqui</a>.
+        </p>
+    </div>
+</form>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

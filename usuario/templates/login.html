@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login - Pedido Digital
+{% endblock %}
+
+{% block header %}
+<h1>Bem-vindo</h1>
+{% endblock %}
+
+{% block main %}
+<section>
+    <h2>Entrar na sua conta</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+        <br>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        <br>
+        <button type="submit">Entrar</button>
+    </form>
+    <p>
+        Deseja voltar para a Página Inicial?
+        <a href="{% url 'home_view' %}">Clique aqui</a>.
+    </p>
+        Ainda não tem conta?
+        <a href="{% url 'cadastrar_usuario' %}">Clique aqui para se cadastrar</a>.
+    </p>
+</section>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+Bem-vindo à Cantina do Aluno
+{% endblock %}
+
+{% block header %}
+<h1>Pedido Digital.</h1>
+{% endblock %}
+
+{% block main %}
+<section>
+    <h2>Olá, estudante!</h2>
+    <p>Bem-vindo ao sistema online da cantina. Aqui você pode:</p>
+    <ul>
+        <li><strong>Ver o cardápio</strong> completo com todos os lanches disponíveis.</li>
+        <li><strong>Fazer pedidos</strong> de forma rápida e fácil, direto pelo portal.</li>
+        <li><strong>Acompanhar seus pedidos</strong> e consultar o histórico de pedidos..</li>
+        <li><strong>Editar seu perfil</strong> e manter seus dados sempre atualizados.</li>
+    </ul>
+    <p>
+        Aproveite a comodidade de pedir seu lanche sem sair da sala! Qualquer dúvida, procure um atendente na cantina.
+    </p>
+    <hr>
+    <div>
+        <a href="{% url 'login_usuario' %}">
+            <button type="button">Fazer Login</button>
+        </a>
+        <a href="{% url 'cadastrar_usuario' %}">
+            <button type="button">Cadastrar Conta</button>
+        </a>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
