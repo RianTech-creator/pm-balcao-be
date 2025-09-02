@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-ym&w&n=!m%#%%h_7fmf0=^ksyovm5airo)85fxi9lfrt@9)b%h
 DEBUG = True
 
 ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = ['https://8000-firebase-projetobalcaobe-1754313450934.cluster-qhrn7lb3szcfcud6uanedbkjnm.cloudworkstations.dev']
+CSRF_TRUSTED_ORIGINS = ['https://8000-firebase-pm-balcao-be-1756737681388.cluster-ocv3ypmyqfbqysslgd7zlhmxek.cloudworkstations.dev']
 
 
 # Application definition
