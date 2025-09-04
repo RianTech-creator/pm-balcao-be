@@ -13,6 +13,9 @@ Login - Pedido Digital
     <h2>Entrar na sua conta</h2>
     <form method="post">
         {% csrf_token %}
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
         <br>
@@ -25,6 +28,7 @@ Login - Pedido Digital
         Deseja voltar para a Página Inicial?
         <a href="{% url 'home_view' %}">Clique aqui</a>.
     </p>
+    <p>
         Ainda não tem conta?
         <a href="{% url 'cadastrar_usuario' %}">Clique aqui para se cadastrar</a>.
     </p>
