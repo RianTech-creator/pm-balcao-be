@@ -10,6 +10,7 @@ Cadastrar Usuário
 
 {% block main %}
 <h2>Cadastrar usuário</h2>
+<h3>Não utilize caracteres especiais(@, #, %, &, $, etc.) e/ou números no nome de usuário</h3>
 <form method="post">
     {% csrf_token %}
     {% if error %}

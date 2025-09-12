@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Usuario
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt # REMOVER DA PRODUÇÃO - USAR EM DEBUG APENAS
+
 
 # Create your views here.
 def home_view(request):
@@ -41,6 +44,7 @@ def cadastrar_usuario(request):
 
     return render(request, 'cadastrar_usuario.html')
 
+@csrf_exempt  # REMOVER DA PRODUÇÃO - USAR EM DEBUG APENAS
 def login_usuario(request):
     """
     Autentica o usuário e inicia a sessão.
@@ -54,8 +58,12 @@ def login_usuario(request):
 
         if user is not None:
             login(request, user)
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    return JsonResponse({'success': True, 'message': 'Login realizado com sucesso!'})
             return redirect('painel_usuario')
         else:
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    return JsonResponse({'success': False, 'message': 'E-mail ou senha inválidos.'})
             return render(request, 'login_usuario.html', {'error': 'E-mail ou senha inválidos.'})
 
     return render(request, 'login_usuario.html')
