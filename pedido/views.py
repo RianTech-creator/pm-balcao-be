@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from produto.models import Produto
 
 # Dados fictícios para o cardápio, já que ainda não há um modelo para ele.
 # Isso deve ser substituído por uma consulta a um modelo 'Produto' ou 'ItemCardapio'.
@@ -25,6 +26,8 @@ def criar_pedidos(request):
     Exibe o cardápio para o usuário fazer um novo pedido (GET)
     e processa o pedido enviado (POST).
     """
+    cardapio = Produto.objects.all()
+    # cardapio = DUMMY_CARDAPIO
     if request.method == 'POST':
         # Lógica para processar o pedido.
         # Aqui você pegaria os itens do request.POST,
@@ -33,7 +36,7 @@ def criar_pedidos(request):
         # Após salvar o pedido, redireciona para o histórico ou uma página de confirmação.
         return redirect('historico_pedidos')
 
-    context = {'cardapio': DUMMY_CARDAPIO}
+    context = {'cardapio': cardapio}
     return render(request, 'criar_pedidos.html', context)
 
 @login_required(login_url='login_usuario')
