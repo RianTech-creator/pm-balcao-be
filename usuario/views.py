@@ -60,7 +60,7 @@ def login_usuario(request):
             login(request, user)
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     return JsonResponse({'success': True, 'message': 'Login realizado com sucesso!'})
-            return redirect('painel_usuario')
+            return redirect('criar_pedidos')
         else:
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     return JsonResponse({'success': False, 'message': 'E-mail ou senha inválidos.'})
