@@ -10,7 +10,7 @@ Fazer Pedido
 
 {% block main %}
 <section>
-    <h2>Cardápio</h2>
+    <h2>Bem-vindo ao Cardápio {{  user.get_full_name|default:user.username }}</h2>
     <p>Selecione os itens que deseja pedir e clique em "Finalizar Pedido".</p>
 
     {% comment %}
