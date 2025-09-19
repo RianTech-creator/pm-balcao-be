@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from produto.models import produto
+from produto.models import Produto
 from usuario.models import Usuario
 
 
@@ -8,7 +8,7 @@ class Pedido(models.Model):
     STATUS_CHOICES = [
         ('aberto', 'Aberto'),
         ('pendente', 'Pendente'),
-        ('preparo', 'Em Preparo'),
+        ('preparo', 'Em Preparov'),
         ('entregue', 'Entregue'),
         ('cancelado', 'Cancelado'),
     ]
@@ -29,7 +29,7 @@ class Pedido(models.Model):
 
 class ItemPedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, related_name="itens")
-    produto = models.ForeignKey(produto, on_delete=models.CASCADE)
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField()
     preco_unitario = models.DecimalField(max_digits=6, decimal_places=2)
 
